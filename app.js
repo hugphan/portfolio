@@ -69,8 +69,22 @@ function renderPersona(p) {
   $("summary").textContent = p.summary;
 
   $("highlights").innerHTML = p.highlights
-    .map((h) => `<div class="hl-card"><div class="hl-num">${h.number}</div><div class="hl-label">${h.label}</div></div>`)
+    .map((h, i) => {
+      const hasVideo = h.videos && h.videos.length;
+      return `<div class="hl-card${hasVideo ? " clickable" : ""}"${hasVideo ? ` data-hl="${i}" role="button" tabindex="0"` : ""}>
+        <div class="hl-num">${h.number}</div>
+        <div class="hl-label">${h.label}</div>
+        ${hasVideo ? `<div class="hl-cta">▶ Xem ${h.videos.length} video</div>` : ""}
+      </div>`;
+    })
     .join("");
+
+  // Gắn sự kiện bấm/Enter cho card có video
+  $("highlights").querySelectorAll(".hl-card.clickable").forEach((card) => {
+    const open = () => openVideoModal(p.highlights[+card.dataset.hl]);
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+  });
 
   $("experience").innerHTML = p.experience
     .map((x) => `
@@ -118,6 +132,50 @@ function setupTabs() {
   activate(fromHash >= 0 ? fromHash : 0);
 }
 
+/* ---- Cửa sổ xem video ---- */
+
+// Lấy ID video YouTube từ nhiều dạng link (watch, youtu.be, shorts, embed)
+function ytId(url) {
+  const m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{11})/);
+  return m ? m[1] : null;
+}
+
+// Vẽ 1 video: YouTube thì nhúng phát tại chỗ, nền tảng khác thì nút mở ra ngoài
+function renderVideo(v) {
+  const id = ytId(v.url);
+  if (id) {
+    return `<div class="vid">
+      <div class="vid-frame">
+        <iframe src="https://www.youtube.com/embed/${id}" title="${v.title || ""}"
+          loading="lazy" frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      ${v.title ? `<div class="vid-title">${v.title}</div>` : ""}
+    </div>`;
+  }
+  return `<a class="vid-link" href="${v.url}" target="_blank" rel="noopener">▶ ${v.title || v.url}</a>`;
+}
+
+function openVideoModal(h) {
+  $("modal-title").textContent = h.label ? `${h.number} — ${h.label}` : h.number;
+  $("modal-videos").innerHTML = h.videos.map(renderVideo).join("");
+  $("video-modal").hidden = false;
+  document.body.style.overflow = "hidden"; // khoá cuộn nền
+}
+
+function closeVideoModal() {
+  $("video-modal").hidden = true;
+  $("modal-videos").innerHTML = ""; // xoá iframe để dừng video đang phát
+  document.body.style.overflow = "";
+}
+
+function setupModal() {
+  document.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", closeVideoModal));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeVideoModal(); });
+}
+
 /* ---- Khởi động ---- */
 renderProfile();
 setupTabs();
+setupModal();

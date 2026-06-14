@@ -74,6 +74,16 @@
     <p>© <span id="year"></span> Phan Quốc Hùng · Trang này được xây bằng Claude Code.</p>
   </footer>
 
+  <!-- ===== CỬA SỔ XEM VIDEO (ẩn cho tới khi bấm vào card) ===== -->
+  <div id="video-modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" data-close aria-label="Đóng">✕</button>
+      <h3 id="modal-title"></h3>
+      <div id="modal-videos" class="modal-videos"></div>
+    </div>
+  </div>
+
   <!-- Nội dung trước, logic sau -->
   <script src="data.js"></script>
   <script src="app.js"></script>

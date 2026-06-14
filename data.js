@@ -77,9 +77,15 @@ const PERSONAS = [
     title: "Editor — Media & Branding",
     tagline: "Quay dựng, sản xuất video quảng cáo và xây dựng hình ảnh thương hiệu cho spa, F&B, khách sạn.",
     highlights: [
-      { number: "Video ads", label: "quay · dựng · branding" },
-      { number: "Multi-brand", label: "spa, nhà hàng, khách sạn, cafe" },
-      { number: "AI + Edit", label: "ứng dụng AI vào sản xuất nội dung" },
+      // Bấm vào card sẽ mở video nếu mảng "videos" có link.
+      // Mỗi video: { title: "Tên video", url: "link YouTube" }
+      // VD:  videos: [
+      //        { title: "TVC spa 30s", url: "https://youtu.be/XXXXXXXXXXX" },
+      //        { title: "Reel khai trương", url: "https://www.youtube.com/shorts/YYYYYYYYYYY" },
+      //      ]
+      { number: "Video ads", label: "quay · dựng · branding", videos: [] },
+      { number: "Multi-brand", label: "spa, nhà hàng, khách sạn, cafe", videos: [] },
+      { number: "AI + Edit", label: "ứng dụng AI vào sản xuất nội dung", videos: [] },
     ],
     summary:
       "Editor & nhà sản xuất nội dung đa nền tảng. Tự chủ toàn bộ quy trình từ quay (camera, mic, flycam) đến dựng và hậu kỳ. Kết hợp công cụ AI để tăng tốc sản xuất video ngắn và xây dựng hình ảnh thương hiệu.",
