@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phan Quốc Hùng — Portfolio</title>
+  <meta name="description" content="Portfolio của Phan Quốc Hùng — LMS / Business Development, Editor / Media, Marketing." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== HEADER: thông tin chung + chọn persona ===== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <img id="photo" class="avatar" alt="Phan Quốc Hùng" />
+      <div class="hero-text">
+        <h1 id="name"></h1>
+        <p id="title" class="title"></p>
+        <p id="tagline" class="tagline"></p>
+        <div id="contact" class="contact"></div>
+        <div id="links" class="links"></div>
+      </div>
+    </div>
+
+    <!-- Nút chuyển persona -->
+    <nav id="tabs" class="tabs" aria-label="Chọn định hướng"></nav>
+  </header>
+
+  <!-- ===== NỘI DUNG THEO PERSONA (JS tự đổ vào) ===== -->
+  <main>
+    <section class="block">
+      <a id="cv-btn" class="cv-btn" href="#" target="_blank" rel="noopener">⤓ Tải CV (PDF)</a>
+    </section>
+
+    <section class="block">
+      <h2>Tóm tắt</h2>
+      <p id="summary" class="summary"></p>
+    </section>
+
+    <section class="block">
+      <h2>Con số nổi bật</h2>
+      <div id="highlights" class="highlights"></div>
+    </section>
+
+    <section class="block">
+      <h2>Kinh nghiệm</h2>
+      <div id="experience" class="timeline"></div>
+    </section>
+
+    <section class="block">
+      <h2>Kỹ năng</h2>
+      <div id="skills" class="skills"></div>
+    </section>
+
+    <section class="block">
+      <h2>Học vấn</h2>
+      <div id="education" class="timeline"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>© <span id="year"></span> Phan Quốc Hùng · Trang này được xây bằng Claude Code.</p>
+  </footer>
+
+  <!-- Nội dung trước, logic sau -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
