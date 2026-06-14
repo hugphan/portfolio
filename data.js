@@ -9,7 +9,7 @@ const PROFILE = {
   photo: "assets/photo.jpg",
   phone: "0386 400 500",
   email: "hungphan2804@gmail.com",
-  location: "Đông Anh, Hà Nội",
+  location: "Thiên Lộc, Hà Nội",
   workType: "Remote / Hybrid · Freelance / Part-time",
   links: [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/phan-quoc-hung/", icon: "in" },
@@ -82,6 +82,7 @@ const PERSONAS = [
       { number: "Video ads", label: "quay · dựng · branding", videos: [
         { title: "Video quảng cáo", url: "https://youtu.be/g7xwdSmZ3TQ" },
         { title: "Quảng cáo (Shorts)", url: "https://www.youtube.com/shorts/qfsMP715mKQ" },
+        { title: "Video quảng cáo", url: "https://drive.google.com/file/d/1XdwK8Pt4w9RT_GVOOBJXhkDj2njrXlaU/view?usp=drive_link" },
       ] },
       { number: "Multi-brand", label: "spa, nhà hàng, khách sạn, cafe", videos: [
         { title: "Giới thiệu bể bơi", url: "https://youtube.com/shorts/9t5dosYSoGk" },
@@ -94,7 +95,7 @@ const PERSONAS = [
         { title: "AI (Shorts)", url: "https://youtube.com/shorts/lCUvg4n1dHE" },
       ] },
       { number: "Vlog", label: "vlog cá nhân", videos: [
-        { title: "Vlog cá nhân", url: "https://youtube.com/shorts/Qdv2ZTwo7Xw" },
+        { title: "Vlog cá nhân", url: "https://drive.google.com/file/d/1spAOCxMLu0hoVprTT2hIYaxYa7EnSSYQ/view?usp=sharing" },
       ] },
     ],
     summary:

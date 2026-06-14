@@ -140,15 +140,30 @@ function ytId(url) {
   return m ? m[1] : null;
 }
 
-// Vẽ 1 video: YouTube thì nhúng phát tại chỗ, nền tảng khác thì nút mở ra ngoài
+// Lấy ID file Google Drive (dạng /file/d/ID/... hoặc ?id=ID)
+function driveId(url) {
+  const m = String(url).match(/drive\.google\.com\/(?:file\/d\/|(?:open|uc)\?(?:[^&]*&)*id=)([\w-]+)/);
+  return m ? m[1] : null;
+}
+
+// Tính link nhúng từ YouTube hoặc Google Drive (không nhận ra thì trả null)
+function videoEmbedSrc(url) {
+  const yt = ytId(url);
+  if (yt) return "https://www.youtube.com/embed/" + yt;
+  const drive = driveId(url);
+  if (drive) return "https://drive.google.com/file/d/" + drive + "/preview";
+  return null;
+}
+
+// Vẽ 1 video: nhúng phát tại chỗ nếu là YouTube/Drive, nền tảng khác thì nút mở ra ngoài
 function renderVideo(v) {
-  const id = ytId(v.url);
-  if (id) {
+  const src = videoEmbedSrc(v.url);
+  if (src) {
     return `<div class="vid">
       <div class="vid-frame">
-        <iframe src="https://www.youtube.com/embed/${id}" title="${v.title || ""}"
+        <iframe src="${src}" title="${v.title || ""}"
           loading="lazy" frameborder="0"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
       ${v.title ? `<div class="vid-title">${v.title}</div>` : ""}
