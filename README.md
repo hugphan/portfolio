@@ -11,7 +11,7 @@ thành tích + kinh nghiệm + kỹ năng phù hợp.
 | `index.html` | Khung trang | Hiếm khi |
 | `styles.css` | Giao diện, màu sắc (đổi `--accent` ở đầu file) | Khi muốn đổi màu |
 | `app.js` | Logic đổ dữ liệu + chuyển tab | Hầu như không |
-| `assets/` | Ảnh + file CV PDF | Thay file mới khi cần |
+| `assets/` | Ảnh đại diện | Thay file mới khi cần |
 
 👉 **Muốn cập nhật thông tin: chỉ mở `data.js`.**
 
@@ -31,6 +31,6 @@ python3 -m http.server 4321
 **Netlify / Vercel:** kéo-thả thư mục `portfolio/` vào trang web của họ → ra link ngay.
 
 ## Mẹo dùng khi apply việc
-- Gửi link kèm tab phù hợp: `...github.io/portfolio/#editor` mở thẳng vai Editor.
-- Cập nhật số liệu (views, doanh số, follower) vào `highlights` trong `data.js`
-  để CV mạnh hơn — đây là phần đang còn thiếu trong hồ sơ.
+- Gửi link kèm tab phù hợp: `...github.io/#editor` mở thẳng vai Editor.
+- Toàn bộ nội dung CV nằm thẳng trên web; nhà tuyển dụng liên hệ qua mục **Liên hệ**,
+  bạn gửi file PDF bản đầy đủ phù hợp với vị trí sau.

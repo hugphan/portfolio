@@ -180,6 +180,33 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 8px 20px; }
   font-size: 0.84rem;
 }
 
+/* ---------- ACTIVITIES ---------- */
+.activities { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.activities li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  color: var(--muted);
+}
+
+/* ---------- CONTACT ---------- */
+#contact-section .summary { margin-bottom: 16px; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-btn {
+  display: inline-flex; align-items: center;
+  padding: 12px 20px; border-radius: 12px;
+  text-decoration: none; font-weight: 600;
+  background: var(--surface-2); color: var(--text);
+  border: 1px solid var(--border);
+  transition: border-color .15s, transform .15s;
+}
+.contact-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+.contact-btn.primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #0f1117; border: none;
+}
+
 /* ---------- FOOTER ---------- */
 .foot { max-width: var(--maxw); margin: 48px auto 0; padding: 0 20px; color: var(--muted); font-size: 0.85rem; text-align: center; }
 

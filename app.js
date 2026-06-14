@@ -34,6 +34,32 @@ function renderProfile() {
         <div class="tl-org">${e.detail}</div>
       </div>`)
     .join("");
+
+  $("courses").innerHTML = PROFILE.courses
+    .map((c) => `
+      <div class="tl-item">
+        <div class="tl-top">
+          <span class="tl-role">${c.detail}</span>
+          <span class="tl-time">${c.time}</span>
+        </div>
+      </div>`)
+    .join("");
+
+  $("activities").innerHTML = PROFILE.activities
+    .map((a) => `<li>${a}</li>`)
+    .join("");
+
+  // Khu vực Liên hệ
+  $("contact-note").textContent = PROFILE.contactNote;
+  $("contact-actions").innerHTML = [
+    { label: `✉ ${PROFILE.email}`, href: `mailto:${PROFILE.email}`, primary: true },
+    { label: `📞 ${PROFILE.phone}`, href: `tel:${PROFILE.phone.replace(/\s/g, "")}` },
+    ...PROFILE.links.map((l) => ({ label: l.label, href: l.url, blank: true })),
+  ]
+    .map((c) =>
+      `<a class="contact-btn${c.primary ? " primary" : ""}" href="${c.href}"` +
+      `${c.blank ? ' target="_blank" rel="noopener"' : ""}>${c.label}</a>`)
+    .join("");
 }
 
 /* ---- Phần THEO PERSONA: render lại mỗi khi đổi tab ---- */
@@ -41,7 +67,6 @@ function renderPersona(p) {
   $("title").textContent = p.title;
   $("tagline").textContent = p.tagline;
   $("summary").textContent = p.summary;
-  $("cv-btn").href = p.cv;
 
   $("highlights").innerHTML = p.highlights
     .map((h) => `<div class="hl-card"><div class="hl-num">${h.number}</div><div class="hl-label">${h.label}</div></div>`)

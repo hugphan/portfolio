@@ -18,6 +18,23 @@ const PROFILE = {
     { school: "Đại học Thăng Long", time: "2016 – 2020", detail: "Khoa học máy tính" },
     { school: "Aprotrain Aptech", time: "2015 – 2016", detail: "CNTT — MySQL / PHP / HTML / CSS" },
   ],
+  // Khóa học / đào tạo thêm (hiện chung cho mọi vai)
+  courses: [
+    { time: "10/2024", detail: "Live Practice / Livestream (Thảo Phạm)" },
+    { time: "8/2024", detail: "Làm video ngắn, xây kênh TikTok (PHS Group)" },
+    { time: "6–7/2024", detail: "10X Affiliate (Hoàng Mạnh Cường)" },
+    { time: "2018 – Nay", detail: "Nhiều hội thảo về marketing & thuật toán mạng xã hội" },
+  ],
+  // Hoạt động
+  activities: [
+    "CLB Tin học ĐH Thăng Long — ban chủ nhiệm (mảng an toàn thông tin)",
+    "CLB Guitar ĐH Thăng Long — ban truyền thông",
+    "BTC CodeBattle 2017, VNPT Security Marathon 2017, Business Idea Competition 2018",
+  ],
+  // Lời mời liên hệ — hiện ở khu vực Liên hệ cuối trang
+  contactNote:
+    "Nhà tuyển dụng quan tâm có thể liên hệ trực tiếp qua email hoặc điện thoại bên dưới. " +
+    "Tôi sẽ gửi CV bản đầy đủ (PDF) phù hợp với vị trí ngay khi nhận được liên hệ.",
 };
 
 /* Mỗi "persona" = một định hướng nghề.
@@ -29,7 +46,6 @@ const PERSONAS = [
     tab: "LMS / Business Dev",
     title: "LMS Business Development Specialist",
     tagline: "3+ năm vận hành Moodle LMS quy mô lớn — từ kỹ thuật khóa học đến phát triển khách hàng.",
-    cv: "assets/CV-LMS-BusinessDevelopment.pdf",
     highlights: [
       { number: "1.000+", label: "khóa học triển khai trên Moodle" },
       { number: "12.000+", label: "học viên được hỗ trợ" },
@@ -40,7 +56,12 @@ const PERSONAS = [
       "Chuyên viên vận hành đào tạo trực tuyến với kinh nghiệm triển khai và quản trị hệ thống LMS (Moodle) ở quy mô hàng nghìn khóa học. Mạnh về xây dựng SOP, tối ưu learner journey và làm việc trực tiếp với giảng viên/đối tác để phát triển sản phẩm đào tạo B2B.",
     experience: [
       { time: "10/2021 – 5/2024", role: "Chuyên viên Vận hành Khóa học trực tuyến", org: "ONSCHOOL (Trường học trực tuyến)",
-        points: ["Triển khai & quản trị 1.000+ khóa học trên Moodle LMS", "Chủ dự án Course 2.0: tối ưu learner journey, chuyển giao sản phẩm B2B", "Xây dựng SOP & quy trình vận hành đào tạo trực tuyến"] },
+        points: [
+          "Triển khai & quản trị 1.000+ khóa học trên Moodle LMS, hỗ trợ 12.000+ học viên",
+          "Chủ dự án Course 2.0: tối ưu learner journey, chuyển giao sản phẩm B2B",
+          "Xây dựng SOP & quy trình vận hành đào tạo trực tuyến",
+          "Làm việc trực tiếp với 100+ giảng viên & đối tác đào tạo; giữ tỷ lệ phản hồi học viên >90% trong 24h",
+        ] },
     ],
     skills: [
       { group: "Vận hành LMS", items: ["Moodle", "Quản lý khóa học/học viên", "Enrollment & phân quyền", "Quiz & assessment", "Gradebook", "Certificate"] },
@@ -55,7 +76,6 @@ const PERSONAS = [
     tab: "Editor / Media",
     title: "Editor — Media & Branding",
     tagline: "Quay dựng, sản xuất video quảng cáo và xây dựng hình ảnh thương hiệu cho spa, F&B, khách sạn.",
-    cv: "assets/CV-Editor-Media.pdf",
     highlights: [
       { number: "Video ads", label: "quay · dựng · branding" },
       { number: "Multi-brand", label: "spa, nhà hàng, khách sạn, cafe" },
@@ -68,8 +88,10 @@ const PERSONAS = [
         points: ["Sản xuất video quảng cáo và nội dung branding", "Quay dựng, hậu kỳ trọn gói"] },
       { time: "12/2024 – 3/2025", role: "Truyền thông", org: "Tập đoàn Nhật Tân",
         points: ["Phụ trách nội dung cho khách sạn, nhà hàng, cafe"] },
-      { time: "5/2024 – Nay", role: "Xây dựng thương hiệu cá nhân", org: "YouTube/TikTok",
-        points: ["Kênh AI @Hungphanproductivity — hướng dẫn ứng dụng AI", "Sản xuất video ngắn, kịch bản, dựng phim"] },
+      { time: "5/2024 – Nay", role: "Xây dựng thương hiệu cá nhân", org: "YouTube / TikTok",
+        points: ["Sản xuất video ngắn về ứng dụng AI: kịch bản, quay, dựng phim", "Tự vận hành kênh từ nội dung đến hậu kỳ"] },
+      { time: "2021 – 4/2024", role: "Vận hành màn LED (sự kiện)", org: "Phòng trà SKY Lounge",
+        points: ["Vận hành màn LED hội trường, bàn trộn hình cho sự kiện trực tiếp"] },
     ],
     skills: [
       { group: "Sản xuất", items: ["Quay (camera, mic, flycam)", "Premiere Pro", "CapCut", "Lightroom", "iMovie", "Quik"] },
@@ -84,7 +106,6 @@ const PERSONAS = [
     tab: "Marketing",
     title: "Marketing & Truyền thông",
     tagline: "Chiến lược truyền thông tổng thể, content đa nền tảng và landing page/website.",
-    cv: "assets/CV-LMS-BusinessDevelopment.pdf",
     highlights: [
       { number: "Đa kênh", label: "FB · TikTok · YouTube · IG" },
       { number: "Full-funnel", label: "content · landing page · email" },
@@ -97,6 +118,8 @@ const PERSONAS = [
         points: ["Triển khai hoạt động marketing", "Sản xuất nội dung đa kênh"] },
       { time: "11/2020 – 10/2021", role: "Quản lý, Phát triển truyền thông", org: "Amelya",
         points: ["Quản lý & phát triển kênh truyền thông"] },
+      { time: "2020 – 10/2020", role: "Nhân viên Marketing", org: "INCOM — Thế Giới Máy Massage",
+        points: ["Phụ trách marketing cho ngành hàng bán lẻ"] },
       { time: "11/2018 – 2/2020", role: "Nhân viên Marketing", org: "Công ty Luật Gia Phạm",
         points: ["Phụ trách truyền thông & nội dung"] },
     ],
