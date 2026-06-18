@@ -71,17 +71,23 @@ function renderPersona(p) {
   $("highlights").innerHTML = p.highlights
     .map((h, i) => {
       const hasVideo = h.videos && h.videos.length;
-      return `<div class="hl-card${hasVideo ? " clickable" : ""}"${hasVideo ? ` data-hl="${i}" role="button" tabindex="0"` : ""}>
+      const hasLink = !!h.link;
+      const clickable = hasVideo || hasLink;
+      return `<div class="hl-card${clickable ? " clickable" : ""}"${hasVideo ? ` data-hl="${i}"` : ""}${hasLink ? ` data-link="${h.link}"` : ""}${clickable ? ` role="button" tabindex="0"` : ""}>
         <div class="hl-num">${h.number}</div>
         <div class="hl-label">${h.label}</div>
         ${hasVideo ? `<div class="hl-cta">▶ Xem ${h.videos.length} video</div>` : ""}
+        ${hasLink && !hasVideo ? `<div class="hl-cta">↗ Xem website</div>` : ""}
       </div>`;
     })
     .join("");
 
   // Gắn sự kiện bấm/Enter cho card có video
   $("highlights").querySelectorAll(".hl-card.clickable").forEach((card) => {
-    const open = () => openVideoModal(p.highlights[+card.dataset.hl]);
+    const open = () => {
+      if (card.dataset.link) { window.open(card.dataset.link, "_blank", "noopener"); }
+      else { openVideoModal(p.highlights[+card.dataset.hl]); }
+    };
     card.addEventListener("click", open);
     card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
   });

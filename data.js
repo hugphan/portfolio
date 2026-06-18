@@ -127,9 +127,11 @@ const PERSONAS = [
       { number: "Đa kênh", label: "FB · TikTok · YouTube · IG" },
       { number: "Full-funnel", label: "content · landing page · email" },
       { number: "AI-driven", label: "ứng dụng AI tăng năng suất" },
+      { number: "Website", label: "tự dựng landing page thương hiệu",
+        link: "https://hugphan.github.io/fleurhomestay/" },
     ],
     summary:
-      "Marketer đa năng với kinh nghiệm xây dựng chiến lược truyền thông tổng thể cho nhiều ngành (giáo dục, luật, bán lẻ, làm đẹp). Mạnh về content đa nền tảng, SEO, email marketing và tận dụng AI để mở rộng quy mô sản xuất nội dung.",
+      "Marketer đa năng với kinh nghiệm xây dựng chiến lược truyền thông tổng thể cho nhiều ngành (giáo dục, luật, bán lẻ, làm đẹp). Mạnh về content đa nền tảng, SEO, email marketing và tận dụng AI để mở rộng quy mô sản xuất nội dung. Tự thiết kế & dựng được landing page/website cho thương hiệu (ví dụ website Fleur Homestay).",
     experience: [
       { time: "10/2024 – 12/2024", role: "Phụ trách Marketing", org: "Học viện ILA",
         points: ["Triển khai hoạt động marketing", "Sản xuất nội dung đa kênh"] },
