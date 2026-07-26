@@ -88,6 +88,7 @@ const PERSONAS = [
         { title: "Giới thiệu bể bơi", url: "https://youtube.com/shorts/9t5dosYSoGk" },
         { title: "Brand Fleur Homestay", url: "https://youtube.com/shorts/sollnPbOS94" },
         { title: "Brand Fleur Homestay", url: "https://youtube.com/shorts/4ucP2iiUMDI" },
+        { title: "Video quảng cáo", url: "https://youtu.be/rfPFwK_1M34" },
       ] },
       { number: "AI + Edit", label: "ứng dụng AI vào sản xuất nội dung", videos: [
         { title: "Ứng dụng AI", url: "https://youtu.be/UXk5Dh9CS5Q" },
