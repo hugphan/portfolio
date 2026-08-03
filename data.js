@@ -55,7 +55,13 @@ const PERSONAS = [
     summary:
       "Chuyên viên vận hành đào tạo trực tuyến với kinh nghiệm triển khai và quản trị hệ thống LMS (Moodle) ở quy mô hàng nghìn khóa học. Mạnh về xây dựng SOP, tối ưu learner journey và làm việc trực tiếp với giảng viên/đối tác để phát triển sản phẩm đào tạo B2B.",
     experience: [
-      { time: "10/2021 – 5/2024", role: "Chuyên viên Vận hành Khóa học trực tuyến", org: "ONSCHOOL (Trường học trực tuyến)",
+      { time: "2021 – Nay", role: "Sản xuất bài giảng e-learning (freelance)", org: "ONSCHOOL",
+        points: [
+          "Dựng bài giảng e-learning theo môn học; tiếp tục nhận việc nhiều năm sau khi kết thúc vai trò nhân sự",
+          "Bài giảng video với Premiere Pro (2021 – nay); bài giảng tương tác với H5P & Articulate 360 (2022 – 2023)",
+          "Phạm vi: thao tác công cụ, biên soạn từ nội dung chuyên môn có sẵn, đóng gói & xuất bản",
+        ] },
+      { time: "2021 – 2024", role: "Chuyên viên Vận hành Khóa học trực tuyến", org: "ONSCHOOL (Trường học trực tuyến)",
         points: [
           "Triển khai & quản trị 1.000+ khóa học trên Moodle LMS, hỗ trợ 12.000+ học viên",
           "Chủ dự án Course 2.0: tối ưu learner journey, chuyển giao sản phẩm B2B",
@@ -65,6 +71,7 @@ const PERSONAS = [
     ],
     skills: [
       { group: "Vận hành LMS", items: ["Moodle", "Quản lý khóa học/học viên", "Enrollment & phân quyền", "Quiz & assessment", "Gradebook", "Certificate"] },
+      { group: "Sản xuất e-learning", items: ["H5P", "Articulate 360", "Premiere Pro", "Biên soạn & đóng gói bài giảng"] },
       { group: "Phát triển khách hàng", items: ["Tư vấn chương trình đào tạo", "Chăm sóc & duy trì KH", "Tư vấn đối tác", "Phát triển kinh doanh"] },
       { group: "Công cụ", items: ["MySQL", "Email Marketing (KEAP, GetResponse)", "AI Productivity Tools", "G-Suite"] },
     ],
@@ -108,11 +115,17 @@ const PERSONAS = [
         points: ["Phụ trách nội dung cho khách sạn, nhà hàng, cafe"] },
       { time: "5/2024 – Nay", role: "Xây dựng thương hiệu cá nhân", org: "YouTube / TikTok",
         points: ["Sản xuất video ngắn về ứng dụng AI: kịch bản, quay, dựng phim", "Tự vận hành kênh từ nội dung đến hậu kỳ"] },
+      { time: "2021 – Nay", role: "Dựng bài giảng e-learning (freelance)", org: "ONSCHOOL",
+        points: [
+          "Sản xuất bài giảng video cho nền tảng học trực tuyến — dựng, hậu kỳ, đóng gói xuất bản",
+          "Bài giảng tương tác bằng H5P & Articulate 360 (2022 – 2023)",
+        ] },
       { time: "2021 – 4/2024", role: "Vận hành màn LED (sự kiện)", org: "Phòng trà SKY Lounge",
         points: ["Vận hành màn LED hội trường, bàn trộn hình cho sự kiện trực tiếp"] },
     ],
     skills: [
       { group: "Sản xuất", items: ["Quay (camera, mic, flycam)", "Premiere Pro", "CapCut", "Lightroom", "iMovie", "Quik"] },
+      { group: "E-learning", items: ["H5P", "Articulate 360", "Bài giảng video", "Đóng gói & xuất bản"] },
       { group: "Sáng tạo nội dung", items: ["Kịch bản video ngắn", "Bố cục & nhiếp ảnh", "Content FB/TikTok/YouTube/IG"] },
       { group: "Kỹ thuật sự kiện", items: ["Âm thanh", "Màn LED hội trường", "Bàn trộn hình"] },
     ],
