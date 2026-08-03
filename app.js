@@ -35,16 +35,6 @@ function renderProfile() {
       </div>`)
     .join("");
 
-  $("courses").innerHTML = PROFILE.courses
-    .map((c) => `
-      <div class="tl-item">
-        <div class="tl-top">
-          <span class="tl-role">${c.detail}</span>
-          <span class="tl-time">${c.time}</span>
-        </div>
-      </div>`)
-    .join("");
-
   $("activities").innerHTML = PROFILE.activities
     .map((a) => `<li>${a}</li>`)
     .join("");
@@ -67,6 +57,21 @@ function renderPersona(p) {
   $("title").textContent = p.title;
   $("tagline").textContent = p.tagline;
   $("summary").textContent = p.summary;
+
+  // Khoá học: mặc định lấy PROFILE.courses; vai nào đặt "courses" riêng thì
+  // dùng của vai đó. Đặt courses: [] để ẩn hẳn khối — các khoá của Hùng đều
+  // thiên marketing/video nên không hợp vai LMS.
+  const courses = p.courses || PROFILE.courses;
+  $("courses").innerHTML = courses
+    .map((c) => `
+      <div class="tl-item">
+        <div class="tl-top">
+          <span class="tl-role">${c.detail}</span>
+          <span class="tl-time">${c.time}</span>
+        </div>
+      </div>`)
+    .join("");
+  $("courses").closest("section").hidden = courses.length === 0;
 
   $("highlights").innerHTML = p.highlights
     .map((h, i) => {

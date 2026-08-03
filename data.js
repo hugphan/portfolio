@@ -18,7 +18,8 @@ const PROFILE = {
     { school: "Đại học Thăng Long", time: "2016 – 2020", detail: "Khoa học máy tính" },
     { school: "Aprotrain Aptech", time: "2015 – 2016", detail: "CNTT — MySQL / PHP / HTML / CSS" },
   ],
-  // Khóa học / đào tạo thêm (hiện chung cho mọi vai)
+  // Khóa học / đào tạo thêm — mặc định cho mọi vai; vai nào đặt
+  // "courses" riêng thì ghi đè (vd lms đặt [] để ẩn hẳn khối).
   courses: [
     { time: "10/2024", detail: "Live Practice / Livestream (Thảo Phạm)" },
     { time: "8/2024", detail: "Làm video ngắn, xây kênh TikTok (PHS Group)" },
@@ -44,6 +45,9 @@ const PERSONAS = [
   {
     id: "lms",
     tab: "LMS / Business Dev",
+    // Ẩn khối "Khoá học & đào tạo thêm" ở vai này: các khoá đã học đều là
+    // livestream / TikTok / affiliate — thiên marketing, không hợp vai LMS.
+    courses: [],
     title: "LMS Business Development Specialist",
     tagline: "3+ năm vận hành Moodle LMS quy mô lớn — từ kỹ thuật khóa học đến phát triển khách hàng.",
     highlights: [
