@@ -138,7 +138,7 @@ function setupTabs() {
   }
   buttons.forEach((b) => b.addEventListener("click", () => activate(+b.dataset.i)));
 
-  // Nếu URL có sẵn #lms / #editor / #marketing thì mở đúng tab đó
+  // Nếu URL có sẵn #lms / #editor / #marketing / #ai-automation thì mở đúng tab đó
   const fromHash = PERSONAS.findIndex((p) => p.id === location.hash.slice(1));
   activate(fromHash >= 0 ? fromHash : 0);
 }
