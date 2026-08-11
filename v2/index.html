@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phan Quốc Hùng — Portfolio (bản v2)</title>
+<meta name="description" content="Portfolio của Phan Quốc Hùng — AI Automation, Editor / Media, LMS / Business Development, Marketing.">
+<!-- Bản đang dựng, chạy song song với bản chính ở ../ : bảo công cụ tìm kiếm
+     bỏ qua để hai bản không tranh chỗ nhau trên Google. Chốt xong thì xoá dòng này. -->
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ⚠ Đã đo bằng css2 API — các font áp phích KHÔNG có subset vietnamese,
+     tuyệt đối không dùng: Archivo Black · Bebas Neue · Passion One · Lilita One.
+     Dùng Archivo wght@900 thay cho Archivo Black: cùng dáng, có đủ dấu. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Anton&family=Anybody:ital,wdth,wght@1,75,900&family=Kanit:ital,wght@1,900&family=Sigmar&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wipe" id="wipe"></div>
+
+<!-- ===== SỢI CHỈ CHUNG: luôn ở đây, mọi vai ===== -->
+<header class="spine">
+  <div class="spine-id">
+    <div class="spine-ava">PH</div>
+    <div class="spine-name">Phan Quốc Hùng</div>
+  </div>
+  <nav class="spine-tabs" id="tabs" role="tablist" aria-label="Chọn định hướng"></nav>
+</header>
+
+<main id="panes"></main>
+
+<p class="foot-note">Bản v2 đang dựng · bản chính thức ở <a href="../">../</a></p>
+
+<!-- Nội dung trước, logic sau. data.js dùng chung với bản chính ở thư mục cha —
+     v2 chỉ ĐỌC, không có bản sao nào để lệch nhau. -->
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+/* ============================================================
+   styles.css — BẢN V2: bốn vai, bốn bố cục khác hẳn nhau
+   Đặc tả đầy đủ: ../../portfolio-thiet-ke.md
+   Bộ khung chung chỉ gồm: thanh chuyển vai · tên+ảnh · khối liên hệ.
+   Ngoài ba thứ đó, mỗi vai được phép khác hoàn toàn.
+
+   HAI LUẬT KHÔNG ĐƯỢC QUÊN khi sửa file này (đặc tả mục 6-7):
+   1. Font Google phải có subset `vietnamese`. KHÔNG dùng Archivo Black,
+      Bebas Neue, Passion One, Lilita One, Space Grotesk — chữ hoa chồng
+      hai dấu (Ề, Ố, Ẫ) sẽ vỡ. `Archivo` và `Archivo Black` là hai họ khác nhau.
+   2. Đổi màu xong phải ĐO tương phản bằng số (4.5:1 chữ thường, 3:1 chữ lớn).
+      Mắt thường không bắt được: cam #D97706 trên xanh #0D9488 chỉ 1.18:1.
+   ============================================================ */
+
+/* ============================================================
+   MOCKUP 4 VAI — mỗi vai một bố cục khác hẳn (hướng C, mức gắt)
+   Bộ khung chung chỉ gồm: thanh chuyển vai · tên+ảnh · khối liên hệ
+   ============================================================ */
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Be Vietnam Pro",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+
+/* ---------- SỢI CHỈ CHUNG: thanh chuyển vai ---------- */
+.spine{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;
+  padding:10px 18px;background:#0B0D12;border-bottom:3px solid #000;flex-wrap:wrap}
+.spine-id{display:flex;align-items:center;gap:10px;margin-right:auto}
+.spine-ava{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#334155,#0f172a);
+  border:2px solid #fff;display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+.spine-name{color:#fff;font-weight:700;font-size:15px;letter-spacing:-.2px;white-space:nowrap}
+.spine-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{font:inherit;font-size:13px;font-weight:600;padding:8px 14px;cursor:pointer;
+  background:#fff;color:#0B0D12;border:2px solid #000;border-radius:0;
+  box-shadow:3px 3px 0 rgba(255,255,255,.35);transition:transform .12s,box-shadow .12s}
+.tab:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(255,255,255,.5)}
+.tab:active{transform:translate(3px,3px);box-shadow:0 0 0 rgba(255,255,255,0)}
+.tab[aria-selected="true"]{background:var(--tab-on,#22C55E);color:#000;box-shadow:3px 3px 0 #fff}
+.tab:focus-visible{outline:3px solid #22C55E;outline-offset:2px}
+
+/* ---------- Chuyển cảnh: vệt quét ---------- */
+.wipe{position:fixed;inset:0;z-index:90;pointer-events:none;transform:scaleX(0);transform-origin:left center;
+  background:var(--wipe,#0B0D12)}
+.wipe.go{animation:sweep .55s cubic-bezier(.76,0,.24,1)}
+@keyframes sweep{
+  0%{transform:scaleX(0);transform-origin:left center}
+  50%{transform:scaleX(1);transform-origin:left center}
+  50.01%{transform:scaleX(1);transform-origin:right center}
+  100%{transform:scaleX(0);transform-origin:right center}}
+
+/* ---------- Khung vai ---------- */
+.pane{display:none}
+.pane.on{display:block}
+
+/* ---------- Hiện dần khi cuộn (dùng chung, cường độ khác nhau) ---------- */
+/* --rest = tư thế NGHỈ sau khi hiện xong. Mặc định là "thẳng", nhưng phần tử
+   nào cần nằm nghiêng (tiêu đề vai Marketing) thì đặt --rest riêng — nếu ép
+   cứng transform:none thì góc xoay bị xoá mất ngay khi hiện xong. */
+.rv{opacity:0;transition:opacity .5s ease,transform .5s ease;transition-delay:calc(var(--i,0)*60ms)}
+.rv.in{opacity:1;transform:var(--rest,none)!important}
+.rv-up{transform:translateY(22px)}
+.rv-pop{transform:translateY(18px) scale(.94)}
+.rv-pop.in{transition-timing-function:cubic-bezier(.34,1.56,.64,1)}
+.rv-side{transform:translateX(-40px)}
+.rv-hud{transform:translateY(10px)}
+
+.foot-note{padding:26px 20px 40px;text-align:center;font-size:13px;opacity:.65}
+
+/* ============================================================
+   ① LMS / BUSINESS DEV — "Bảng vận hành"
+   Phẳng tuyệt đối: không bóng, không viền. Gắt bằng KHỔ CHỮ + KHỐI MÀU.
+   ============================================================ */
+/* Màu đã hiệu chỉnh theo kết quả đo tương phản (2026-08-11):
+   nền hero #0D9488 cho chữ trắng chỉ 3.74:1 → hạ xuống #0F766E được 5.47:1.
+   Cam #D97706 đặt trên xanh lá chỉ 1.18:1 (gần như tàng hình) → cam chỉ còn
+   dùng trên nền TRẮNG, và dùng bản đậm #B45309 cho đủ 4.5:1. */
+#lms{--teal:#0F766E;--teal-d:#115E59;--amber:#B45309;--ink:#0A3833;background:#F0FDFA;color:#0A3833;
+  font-family:"Be Vietnam Pro",sans-serif}
+#lms h1,#lms h2,#lms .big{font-family:"Archivo",sans-serif}
+
+#lms .kpi-wrap{background:var(--teal);color:#fff;padding:44px 20px 54px;position:relative;overflow:hidden}
+/* lưới mờ phía sau — gợi cảm giác "bảng điều khiển", vẫn phẳng, không bóng */
+#lms .kpi-wrap::before{content:"";position:absolute;inset:0;opacity:.13;pointer-events:none;
+  background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
+  background-size:46px 46px}
+#lms .kpi-head{max-width:1100px;margin:0 auto 26px;position:relative}
+#lms .eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  background:var(--amber);color:#fff;display:inline-block;padding:5px 12px;margin-bottom:14px}
+#lms .kpi-head h1{font-size:clamp(26px,3.8vw,44px);font-weight:900;letter-spacing:-1.3px;line-height:1.1}
+#lms .kpi-head p{margin-top:12px;font-size:clamp(15px,1.7vw,19px);max-width:640px}
+
+/* MỘT con số làm chủ — đây là thứ tạo thứ bậc mà bản trước thiếu */
+#lms .hero-num{max-width:1100px;margin:0 auto;position:relative;
+  display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;
+  padding-bottom:30px;border-bottom:3px solid rgba(255,255,255,.35)}
+#lms .giant{font-family:"Archivo",sans-serif;font-weight:900;color:#fff;
+  font-size:clamp(74px,15vw,190px);line-height:.84;letter-spacing:-6px;
+  font-variant-numeric:tabular-nums}
+#lms .giant-lb{font-size:clamp(16px,2vw,22px);font-weight:700;max-width:290px;padding-bottom:14px}
+
+#lms .kpis{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+#lms .kpi{padding:26px 22px}
+#lms .kpi+.kpi{border-left:2px solid rgba(255,255,255,.3)}
+#lms .kpi .big{display:block;font-family:"Archivo",sans-serif;font-size:clamp(34px,5.4vw,60px);
+  font-weight:900;line-height:.95;letter-spacing:-2px;font-variant-numeric:tabular-nums}
+#lms .kpi span.lb{display:block;margin-top:9px;font-size:15px;max-width:250px}
+
+#lms .band{padding:52px 20px}
+#lms .band.alt{background:#fff}
+#lms .band.amber{background:var(--amber);color:#fff}
+#lms .band-in{max-width:1100px;margin:0 auto}
+#lms h2{font-size:clamp(22px,3vw,34px);font-weight:900;letter-spacing:-.8px;margin-bottom:22px}
+#lms .sum{font-size:clamp(16px,1.8vw,20px);max-width:820px;line-height:1.66}
+
+#lms .xp{display:grid;gap:0}
+#lms .xp-row{display:grid;grid-template-columns:190px 1fr;gap:26px;padding:26px 0;
+  border-top:3px solid var(--teal)}
+#lms .xp-row:last-child{border-bottom:3px solid var(--teal)}
+#lms .xp-time{font-weight:800;color:var(--teal-d);font-size:15px}
+#lms .xp-role{font-family:"Archivo",sans-serif;font-weight:800;font-size:19px;letter-spacing:-.3px}
+#lms .xp-org{color:var(--amber);font-weight:700;font-size:14px;margin-bottom:10px}
+#lms .xp-row ul{list-style:none;display:grid;gap:7px}
+#lms .xp-row li{padding-left:20px;position:relative;font-size:15px}
+#lms .xp-row li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:10px;background:var(--teal)}
+
+#lms .sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0}
+#lms .sk-g{padding:24px;background:#fff}
+#lms .sk-g:nth-child(2n){background:#CCFBF1}
+#lms .sk-g h3{font-family:"Archivo",sans-serif;font-size:15px;font-weight:900;text-transform:uppercase;
+  letter-spacing:1px;color:var(--teal-d);margin-bottom:12px}
+#lms .sk-g div{display:flex;flex-wrap:wrap;gap:6px}
+#lms .sk-g em{font-style:normal;font-size:13px;font-weight:600;padding:5px 10px;background:var(--teal);color:#fff}
+
+/* ============================================================
+   ② EDITOR / MEDIA — "Phòng dựng"
+   Brutalism gắt: viền 4px, bóng cứng MÀU, card xoay. Video là ngôi sao.
+   ============================================================ */
+/* Ba bảng màu xanh để Hùng bấm thử ngay trên trang — mặc định "Điện" */
+#editor{--e1:#2563EB;--e2:#06B6D4;--ink:#0B1E4D;background:#EFF6FF;color:var(--ink);
+  font-family:"Be Vietnam Pro",sans-serif}
+#editor[data-pal="dien"]  {--e1:#2563EB;--e2:#06B6D4;--ink:#0B1E4D;background:#EFF6FF}
+#editor[data-pal="cham"]  {--e1:#4F46E5;--e2:#8B5CF6;--ink:#1E1B4B;background:#F5F3FF}
+#editor[data-pal="daiduong"]{--e1:#0E7490;--e2:#22D3EE;--ink:#083344;background:#ECFEFF}
+
+#editor h1,#editor h2,#editor h3{font-family:"Bricolage Grotesque",sans-serif}
+
+#editor .ed-hero{padding:60px 20px 46px;max-width:1160px;margin:0 auto}
+#editor .ed-hero h1{font-size:clamp(34px,6.6vw,80px);font-weight:800;line-height:1.1;letter-spacing:-2.5px}
+#editor .kin{display:inline-block;background:var(--e1);color:#fff;padding:0 14px;
+  border:4px solid #000;box-shadow:8px 8px 0 var(--e2);transform:rotate(-2deg);min-width:5ch}
+#editor .ed-hero p{margin-top:26px;font-size:clamp(16px,2vw,21px);max-width:660px;font-weight:500}
+
+#editor .mason{max-width:1160px;margin:0 auto;padding:0 20px 20px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:26px;align-items:start}
+/* Thẻ KHÔNG còn bấm được: nó chỉ là cái khung. Mỗi dòng video bên trong mới
+   là nút bấm riêng — trỏ dòng nào sáng dòng đó, bấm dòng nào mở video đó. */
+#editor .vcard{background:#fff;border:4px solid #000;box-shadow:9px 9px 0 var(--e1);
+  padding:22px;display:block;width:100%;--rest:rotate(-1.1deg)}
+#editor .vcard:nth-child(2n){box-shadow:9px 9px 0 var(--e2);--rest:rotate(1.6deg)}
+#editor .vcard:nth-child(3n){--rest:rotate(-2.2deg)}
+/* LẮC NHẸ: thẻ bay vào ở góc lệch hẳn rồi lắc về tư thế nghỉ. Nhịp nảy nằm ở
+   cubic-bezier của .rv-pop.in — vượt quá một chút rồi mới đứng yên. */
+#editor .vcard.rv-pop{transform:rotate(-7deg) translateY(20px) scale(.93)}
+#editor .vcard:nth-child(2n).rv-pop{transform:rotate(7deg) translateY(20px) scale(.93)}
+#editor .vcard .num{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(24px,3.2vw,34px);
+  font-weight:800;letter-spacing:-1px;line-height:1.14}
+#editor .vcard .lb{display:block;font-size:14px;font-weight:600;margin-top:6px;opacity:.8}
+#editor .plays{margin-top:16px;display:grid;gap:3px;border-top:3px solid #000;padding-top:11px}
+#editor .play{display:flex;align-items:center;gap:10px;width:100%;font:inherit;font-size:13px;
+  font-weight:600;color:inherit;background:transparent;border:0;padding:7px 8px;cursor:pointer;
+  text-align:left;transition:background .14s,color .14s,transform .14s}
+#editor .play i{width:26px;height:26px;flex:none;background:var(--e1);border:2px solid #000;
+  display:grid;place-items:center;color:#fff;font-style:normal;font-size:10px;
+  transition:background .14s,color .14s}
+#editor .play:hover{background:var(--e1);color:#fff;transform:translateX(3px)}
+#editor .play:hover i{background:#fff;color:var(--e1)}
+#editor .play:focus-visible{outline:3px solid var(--e2);outline-offset:2px}
+
+#editor .ed-body{max-width:1160px;margin:0 auto;padding:44px 20px 30px}
+#editor h2{font-size:clamp(24px,3.6vw,42px);font-weight:800;letter-spacing:-1.4px;margin:34px 0 20px;
+  display:inline-block;background:#000;color:#fff;padding:3px 16px;transform:rotate(-1.2deg)}
+#editor .sum{font-size:clamp(16px,1.8vw,20px);max-width:800px;font-weight:500}
+#editor .xp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+#editor .xc{background:#fff;border:4px solid #000;box-shadow:7px 7px 0 #000;padding:20px}
+#editor .xc:nth-child(3n+1){--rest:rotate(-1.4deg)}
+#editor .xc:nth-child(3n+2){--rest:rotate(1deg)}
+#editor .xc.rv-pop{transform:rotate(-4deg) translateY(18px) scale(.94)}
+#editor .xc:nth-child(3n+2).rv-pop{transform:rotate(4deg) translateY(18px) scale(.94)}
+/* --e2 (cyan sáng) nền chữ trắng chỉ 2.43:1 → dùng --e1 đậm hơn, cả 3 bảng
+   màu đều đạt ≥5.1:1 (đã đo). */
+#editor .xc .t{font-size:12px;font-weight:800;background:var(--e1);color:#fff;display:inline-block;padding:2px 9px}
+#editor .xc h3{font-size:18px;font-weight:800;margin:9px 0 3px;letter-spacing:-.4px}
+#editor .xc .o{font-size:13px;font-weight:700;color:var(--e1);margin-bottom:9px}
+#editor .xc ul{list-style:none;display:grid;gap:6px}
+#editor .xc li{font-size:14px;padding-left:16px;position:relative}
+#editor .xc li::before{content:"▸";position:absolute;left:0;color:var(--e1);font-weight:900}
+#editor .chips{display:flex;flex-wrap:wrap;gap:9px}
+#editor .chips em{font-style:normal;font-size:13px;font-weight:700;padding:7px 12px;background:#fff;
+  border:3px solid #000;box-shadow:3px 3px 0 var(--e1)}
+
+/* ============================================================
+   ③ MARKETING — "Áp phích"
+   Khối màu lớn bất đối xứng, chữ đè lên khối, duotone.
+   ============================================================ */
+#marketing{--rose:#E11D48;--blue:#2563EB;--ink:#4C0519;background:#FFF1F2;color:var(--ink);
+  font-family:"Be Vietnam Pro",sans-serif;
+  --mkf:"Kanit";--mkw:900;--mksty:italic;--mkls:-2px;--mklh:1.2}
+/* Hùng chốt 2026-08-11: dùng "Kanit nghiêng". Ba dòng còn lại là phương án dự
+   phòng, đều đã kiểm CÓ subset vietnamese — đổi `data-font` ở cuối file là bật.
+   line-height để rộng vì chữ hoa có dấu mũ chồng dấu thanh cần chỗ. */
+#marketing[data-font="kanit"]   {--mkf:"Kanit";--mkw:900;--mksty:italic;--mkls:-2px;--mklh:1.2}
+#marketing[data-font="anybody"] {--mkf:"Anybody";--mkw:900;--mksty:italic;--mkls:-1px;--mklh:1.2}
+#marketing[data-font="sigmar"]  {--mkf:"Sigmar";--mkw:400;--mksty:normal;--mkls:-1px;--mklh:1.3}
+#marketing[data-font="anton"]   {--mkf:"Anton";--mkw:400;--mksty:normal;--mkls:-1.5px;--mklh:1.12}
+#marketing h1,#marketing h2,#marketing .disp{font-family:var(--mkf),Impact,sans-serif;
+  font-weight:var(--mkw);font-style:var(--mksty)}
+
+
+#marketing .poster{position:relative;padding:64px 20px 74px;overflow:hidden}
+#marketing .blob{position:absolute;border-radius:0}
+#marketing .b1{width:56vw;height:56vw;max-width:620px;max-height:620px;background:var(--rose);
+  top:-16%;right:-12%;transform:rotate(18deg)}
+#marketing .b2{width:34vw;height:34vw;max-width:360px;max-height:360px;background:var(--blue);
+  bottom:-14%;left:-8%;transform:rotate(-12deg)}
+#marketing .poster-in{position:relative;z-index:2;max-width:1120px;margin:0 auto}
+/* line-height KHÔNG được xuống dưới ~1.02: chữ hoa tiếng Việt có dấu mũ
+   chồng dấu thanh (Ề, Ố, Ẫ) cần chiều cao dòng lớn hơn tiếng Anh, nếu không
+   sẽ bị cắt cụt phần dấu. */
+#marketing .poster h1{font-size:clamp(38px,9vw,116px);line-height:var(--mklh);
+  letter-spacing:var(--mkls);text-transform:uppercase}
+/* XIÊN XẸO: mỗi dòng lệch một góc khác nhau, gốc xoay ở mép trái để chữ
+   không trôi ra ngoài khung. Dùng được với mọi font, không phụ thuộc font
+   có kiểu nghiêng hay không. */
+#marketing .poster h1 span{display:block;transform-origin:left center}
+#marketing .poster h1 span:nth-of-type(1){transform:rotate(-2.8deg)}
+#marketing .poster h1 .hl{background:#fff;color:var(--rose);padding:2px 12px 8px;
+  box-shadow:10px 10px 0 var(--blue);display:inline-block;margin-top:14px;
+  transform:rotate(1.7deg)}
+#marketing .poster p{--rest:rotate(-.9deg);transform-origin:left center}
+#marketing .poster p{margin-top:28px;font-size:clamp(16px,2.1vw,22px);max-width:600px;font-weight:600;
+  background:#fff;display:inline-block;padding:12px 18px;box-shadow:8px 8px 0 var(--rose)}
+
+#marketing .funnel{max-width:1120px;margin:0 auto;padding:14px 20px 54px}
+#marketing .fl{display:grid;gap:0}
+#marketing .fstep{display:flex;align-items:center;gap:20px;padding:22px 26px;color:#fff;position:relative}
+#marketing .fstep:nth-child(1){background:var(--rose);width:100%}
+#marketing .fstep:nth-child(2){background:#BE123C;width:88%}
+#marketing .fstep:nth-child(3){background:#9F1239;width:76%}
+#marketing .fstep:nth-child(4){background:var(--blue);width:64%}
+#marketing .fstep .n{font-family:var(--mkf),sans-serif;font-weight:var(--mkw);
+  font-size:clamp(22px,3vw,36px);letter-spacing:-.5px;line-height:1.18;flex:none}
+#marketing .fstep .d{font-size:14px;font-weight:600;opacity:.95}
+#marketing .fstep .go{margin-left:auto;font-size:12px;font-weight:800;background:#fff;color:var(--rose);
+  padding:5px 11px;white-space:nowrap;flex:none}
+
+#marketing .mk-body{max-width:1120px;margin:0 auto;padding:0 20px 30px}
+#marketing h2{font-size:clamp(26px,4.4vw,54px);letter-spacing:var(--mkls);line-height:var(--mklh);
+  margin:40px 0 20px;text-transform:uppercase;color:var(--rose);
+  display:inline-block;--rest:rotate(-1.6deg);transform-origin:left center}
+#marketing .sum{font-size:clamp(16px,1.9vw,21px);max-width:820px;font-weight:500;
+  border-left:10px solid var(--blue);padding-left:20px}
+#marketing .xp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:0}
+#marketing .mx{padding:24px;color:#fff}
+#marketing .mx:nth-child(4n+1){background:var(--rose)}
+#marketing .mx:nth-child(4n+2){background:var(--blue)}
+#marketing .mx:nth-child(4n+3){background:#9F1239}
+#marketing .mx:nth-child(4n+4){background:#1E40AF}
+#marketing .mx .t{font-size:12px;font-weight:800;opacity:.9}
+#marketing .mx h3{font-family:var(--mkf),sans-serif;font-weight:var(--mkw);font-size:19px;
+  letter-spacing:-.3px;margin:6px 0 3px;line-height:1.28}
+#marketing .mx .o{font-size:13px;font-weight:700;opacity:.92;margin-bottom:9px}
+#marketing .mx ul{list-style:none;display:grid;gap:6px}
+#marketing .mx li{font-size:14px;padding-left:15px;position:relative}
+#marketing .mx li::before{content:"—";position:absolute;left:0;font-weight:800}
+#marketing .chips{display:flex;flex-wrap:wrap;gap:8px}
+#marketing .chips em{font-style:normal;font-size:13px;font-weight:800;padding:8px 13px;
+  background:var(--ink);color:#fff}
+#marketing .chips em:nth-child(3n){background:var(--rose)}
+#marketing .chips em:nth-child(3n+1){background:var(--blue)}
+
+/* ============================================================
+   ④ AI AUTOMATION — "HUD"  ← vai DUY NHẤT nền tối
+   Luật an toàn: nét 1px chỉ trang trí · chữ đọc #C8F5FF/trắng ≥16px
+   · glow CHỈ trên viền & marker, không bao giờ trên chữ đọc.
+   ============================================================ */
+#ai-automation{--cy:#00FFFF;--cy-dim:rgba(0,255,255,.42);--gn:#22C55E;--rd:#C8F5FF;
+  background:#0A0E14;color:var(--rd);font-family:"IBM Plex Mono",monospace}
+#ai-automation .hud-sans{font-family:"Be Vietnam Pro",sans-serif}
+
+#ai-automation .hud-hero{position:relative;padding:56px 20px 46px;max-width:1140px;margin:0 auto;
+  overflow:hidden}
+#ai-automation .scan{position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cy),transparent);opacity:.5;
+  animation:scan 5.5s linear infinite}
+@keyframes scan{0%{top:-2%}100%{top:102%}}
+#ai-automation .hud-hero h1{font-size:clamp(24px,4vw,48px);font-weight:700;letter-spacing:-1px;
+  color:#fff;line-height:1.14}
+#ai-automation .caret{display:inline-block;width:.6ch;background:var(--gn);animation:blink 1s steps(1) infinite;
+  color:transparent}
+@keyframes blink{50%{opacity:0}}
+#ai-automation .hud-hero .tag{font-size:12px;letter-spacing:2px;color:var(--cy);margin-bottom:14px;
+  display:flex;align-items:center;gap:9px}
+#ai-automation .dot{width:8px;height:8px;background:var(--gn);border-radius:50%;
+  box-shadow:0 0 8px var(--gn);animation:blink 1.6s steps(1) infinite;flex:none}
+#ai-automation .hud-hero p{margin-top:18px;font-size:16px;max-width:680px;line-height:1.7}
+
+/* Khung có ngoặc kỹ thuật 4 góc — nét 1px, chỉ trang trí */
+.brk{position:relative;border:1px solid var(--cy-dim);padding:22px;background:rgba(0,255,255,.025)}
+.brk::before,.brk::after{content:"";position:absolute;width:14px;height:14px;border:2px solid var(--cy);
+  box-shadow:0 0 6px rgba(0,255,255,.6)}
+.brk::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.brk::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
+#ai-automation .hud-body{max-width:1140px;margin:0 auto;padding:0 20px 30px}
+#ai-automation h2{font-size:13px;letter-spacing:3px;color:var(--cy);text-transform:uppercase;
+  margin:42px 0 18px;display:flex;align-items:center;gap:12px;font-weight:600}
+#ai-automation h2::after{content:"";flex:1;height:1px;background:var(--cy-dim)}
+
+#ai-automation .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:16px;
+  margin-top:30px}
+#ai-automation .st{padding:18px}
+#ai-automation .st .n{font-size:clamp(20px,2.6vw,30px);font-weight:600;color:#fff;line-height:1.1;
+  display:block}
+#ai-automation .st .l{font-size:13px;margin-top:8px;line-height:1.5;display:block;opacity:.88}
+#ai-automation .st.link{cursor:pointer;transition:background .15s}
+#ai-automation .st.link:hover{background:rgba(0,255,255,.09)}
+#ai-automation .st .open{font-size:11px;color:var(--gn);letter-spacing:1px;margin-top:9px;display:block}
+
+/* Sơ đồ workflow: đầu vào → xử lý → đầu ra */
+#ai-automation .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center;
+  margin-bottom:8px}
+#ai-automation .fnode{padding:16px;text-align:center}
+#ai-automation .fnode .k{font-size:11px;letter-spacing:2px;color:var(--cy);display:block;margin-bottom:7px}
+#ai-automation .fnode .v{font-size:14px;color:#fff;font-weight:500;line-height:1.45}
+#ai-automation .farrow{color:var(--cy);font-size:19px;text-align:center;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+
+#ai-automation .sum{font-size:16px;line-height:1.75;max-width:860px}
+#ai-automation .xp{display:grid;gap:14px}
+#ai-automation .xr{padding:20px}
+#ai-automation .xr .t{font-size:11px;letter-spacing:2px;color:var(--gn)}
+#ai-automation .xr h3{font-size:17px;color:#fff;font-weight:600;margin:7px 0 3px;letter-spacing:-.2px}
+#ai-automation .xr .o{font-size:13px;color:var(--cy);margin-bottom:11px}
+#ai-automation .xr ul{list-style:none;display:grid;gap:8px}
+#ai-automation .xr li{font-size:14px;padding-left:20px;position:relative;line-height:1.6;
+  font-family:"Be Vietnam Pro",sans-serif}
+#ai-automation .xr li::before{content:"▸";position:absolute;left:0;color:var(--cy)}
+#ai-automation .sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:14px}
+#ai-automation .skg{padding:18px}
+/* Chữ hoa do CSS làm, KHÔNG viết hoa sẵn trong data.js: nhãn nhóm kỹ năng còn
+   dùng lại ở ba vai kia với dáng chữ thường. Bản mockup viết hoa thẳng trong
+   dữ liệu nên khi nối vào data.js thật thì mất chữ hoa — chỗ này chữa lại. */
+#ai-automation .skg h3{font-size:11px;letter-spacing:2px;color:var(--cy);margin-bottom:12px;font-weight:600;
+  text-transform:uppercase}
+#ai-automation .skg div{display:flex;flex-wrap:wrap;gap:7px}
+#ai-automation .skg em{font-style:normal;font-size:12px;padding:5px 10px;border:1px solid var(--cy-dim);
+  color:var(--rd)}
+
+/* ---------- Khối liên hệ (SỢI CHỈ CHUNG — cùng cấu trúc mọi vai) ---------- */
+.contact{padding:44px 20px 54px;margin-top:20px}
+.contact-in{max-width:1140px;margin:0 auto}
+.contact h2{margin-bottom:14px}
+.contact p{max-width:760px;margin-bottom:20px}
+.cbtns{display:flex;flex-wrap:wrap;gap:12px}
+.cbtn{font:inherit;font-size:15px;font-weight:700;padding:13px 22px;text-decoration:none;display:inline-block}
+
+#lms .contact{background:var(--teal);color:#fff}
+#lms .contact h2{font-family:"Archivo",sans-serif;font-size:30px;font-weight:900}
+#lms .cbtn{background:#fff;color:var(--teal-d)}
+#lms .cbtn:hover{background:var(--amber);color:#fff}
+
+#editor .contact{background:#000;color:#fff}
+#editor .contact h2{background:var(--e1);transform:rotate(-1.2deg)}
+#editor .cbtn{background:#fff;color:#000;border:4px solid var(--e1);box-shadow:6px 6px 0 var(--e2)}
+#editor .cbtn:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--e2)}
+
+#marketing .contact{background:var(--ink);color:#fff}
+#marketing .contact h2{color:#fff}
+#marketing .cbtn{background:var(--rose);color:#fff}
+#marketing .cbtn:nth-child(2){background:var(--blue)}
+#marketing .cbtn:hover{background:#fff;color:var(--rose)}
+
+#ai-automation .contact{border-top:1px solid var(--cy-dim)}
+#ai-automation .cbtn{border:1px solid var(--cy);color:var(--cy);background:transparent;font-size:14px}
+#ai-automation .cbtn:hover{background:var(--cy);color:#0A0E14}
+
+/* ---------- Đáp ứng màn nhỏ ---------- */
+@media (max-width:760px){
+  #lms .kpis{grid-template-columns:1fr}
+  #lms .kpi+.kpi{border-left:0;border-top:2px solid rgba(255,255,255,.3)}
+  #lms .giant{letter-spacing:-3px}
+  #lms .xp-row{grid-template-columns:1fr;gap:10px}
+  #marketing .fstep{width:100%!important;flex-wrap:wrap;gap:10px}
+  #marketing .fstep .go{margin-left:0}
+  #ai-automation .flow{grid-template-columns:1fr}
+  #ai-automation .farrow{transform:rotate(90deg)}
+  #editor .vcard,#editor .xc{--rest:none}
+  #marketing .poster h1 span:nth-of-type(1){transform:rotate(-1.6deg)}
+  #marketing h2{--rest:rotate(-1deg)}
+  .spine-name{display:none}
+}
+
+/* ---------- Tôn trọng "giảm chuyển động" của hệ điều hành ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none!important}
+  .wipe.go{animation:none}
+}
