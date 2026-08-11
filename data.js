@@ -172,43 +172,43 @@ const PERSONAS = [
     id: "ai-automation",
     tab: "AI Automation",
     // Ẩn khối "Khoá học & đào tạo thêm": các khoá đã học đều là livestream /
-    // TikTok / affiliate — lạc hẳn với vai này.
+    // TikTok / affiliate - lạc hẳn với vai này.
     courses: [],
     title: "IT · AI Integration & Automation",
     tagline: "Người sống trong quy trình vận hành, nay tự dựng công cụ AI để tự động hoá chính những quy trình đó.",
     highlights: [
       { number: "1.000+", label: "khóa học vận hành trên Moodle LMS" },
-      { number: "6 năm", label: "trong quy trình vận hành & nghiệp vụ doanh nghiệp" },
-      { number: "App chạy thật", label: "money-lab — FastAPI · Postgres · OAuth",
+      { number: "8 năm", label: "trong quy trình vận hành & nghiệp vụ doanh nghiệp" },
+      { number: "App chạy thật", label: "money-lab - FastAPI · Postgres · OAuth",
         link: "https://money-lab.onrender.com" },
       { number: "2018", label: "tự động hoá phễu bán hàng trên Infusionsoft/Keap" },
     ],
     summary:
-      "Nền Khoa học máy tính, sáu năm vận hành hệ thống đào tạo trực tuyến ở quy mô nghìn khóa học và tự viết SOP cho chính quy trình mình chạy. Nay dùng AI biến những quy trình giấy tờ lặp lại thành workflow tự động — và tự xây được công cụ để làm: một web app đang chạy thật, một bộ pipeline xử lý hàng chục giờ nội dung, đều viết cùng Claude Code.",
+      "Nền Khoa học máy tính, gần ba năm vận hành hệ thống đào tạo trực tuyến ở quy mô nghìn khóa học và tự viết SOP cho chính quy trình mình chạy, năm năm gắn với nền tảng e-learning. Nay dùng AI biến những quy trình giấy tờ lặp lại thành workflow tự động - và tự xây được công cụ để làm: một web app đang chạy thật, một bộ pipeline xử lý hàng chục giờ nội dung, đều viết cùng Claude Code.",
     experience: [
-      { time: "2026 – Nay", role: "money-lab — web app tài chính cá nhân", org: "Dự án tự dựng",
+      { time: "2026 - Nay", role: "money-lab - web app tài chính cá nhân", org: "Dự án tự dựng",
         points: [
           "Sản phẩm chạy thật tại money-lab.onrender.com: FastAPI, Neon Postgres, migration bằng Alembic, đăng nhập Google OAuth, dữ liệu tách theo người dùng",
-          "44 file test — mọi phép tính tài chính đều có test tự động",
+          "44 file test - mọi phép tính tài chính đều có test tự động",
           "Tự ra quyết định thiết kế và duyệt từng bước, viết cùng Claude Code",
         ] },
-      { time: "2026 – Nay", role: "Pipeline & công cụ tự động hoá", org: "Dự án tự dựng",
+      { time: "2026 - Nay", role: "Pipeline & công cụ tự động hoá", org: "Dự án tự dựng",
         points: [
           "Bộ lệnh CLI video → transcript (ffmpeg + whisper): chạy batch qua đêm, resume-safe, có quality gate tự soi file lỗi",
-          "Số hóa hàng chục giờ bài giảng — chạy offline, không tốn phí dịch vụ",
+          "Số hóa hàng chục giờ bài giảng - chạy offline, không tốn phí dịch vụ",
           "Tự viết skill/agent trên Claude Code, đóng gói quy trình lặp lại thành công cụ một lệnh",
         ] },
-      { time: "2021 – 2024", role: "Chuyên viên Vận hành Khóa học trực tuyến", org: "ONSCHOOL (Trường học trực tuyến)",
+      { time: "2021 - 2024", role: "Chuyên viên Vận hành Khóa học trực tuyến", org: "ONSCHOOL (Trường học trực tuyến)",
         points: [
           "Vận hành 1.000+ khóa học trên Moodle LMS: enrollment, phân quyền, quiz & gradebook, certificate",
-          "Xây dựng SOP & quy trình vận hành — hiểu quy trình đau ở đâu trước khi nói chuyện tự động hoá nó",
+          "Xây dựng SOP & quy trình vận hành - hiểu quy trình đau ở đâu trước khi nói chuyện tự động hoá nó",
           "Chủ dự án Course 2.0: tối ưu learner journey, chuyển giao sản phẩm B2B",
         ] },
-      { time: "2018 – 2025", role: "Nghiệp vụ doanh nghiệp & vận hành", org: "Gia Phạm · INCOM · Amelya · ILA · Nhật Tân · Hoa Anh Thảo",
+      { time: "2018 - 2025", role: "Nghiệp vụ doanh nghiệp & vận hành", org: "Gia Phạm · INCOM · Amelya · ILA · Nhật Tân · Hoa Anh Thảo",
         points: [
           "Làm việc xuyên phòng ban ở doanh nghiệp vừa và nhỏ: nhận yêu cầu từ sales, chăm sóc khách hàng và chủ doanh nghiệp rồi chuyển thành đầu ra chạy được",
           "Dựng quy trình lặp lại được: lịch nội dung, quy trình duyệt và bàn giao cho nhiều đơn vị cùng lúc",
-          "Tự động hoá bán khóa học trên Infusionsoft/Keap (2018–2019, theo thiết kế của trưởng nhóm): phễu từ landing page và Facebook lead ads, gắn thẻ tự động, rẽ nhánh theo lựa chọn người đăng ký, chuỗi email và SMS theo lịch, theo dõi thanh toán, chuyển cơ hội bán hàng cho nhân viên phụ trách",
+          "Tự động hoá bán khóa học trên Infusionsoft/Keap (2018-2019, theo thiết kế của trưởng nhóm): phễu từ landing page và Facebook lead ads, gắn thẻ tự động, rẽ nhánh theo lựa chọn người đăng ký, chuỗi email và SMS theo lịch, theo dõi thanh toán, chuyển cơ hội bán hàng cho nhân viên phụ trách",
         ] },
     ],
     skills: [
