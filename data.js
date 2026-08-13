@@ -189,7 +189,8 @@ const PERSONAS = [
       { time: "2026 - Nay", role: "money-lab - web app tài chính cá nhân", org: "Dự án tự dựng",
         points: [
           "Sản phẩm chạy thật tại money-lab.onrender.com: FastAPI, Neon Postgres, migration bằng Alembic, đăng nhập Google OAuth, dữ liệu tách theo người dùng",
-          "44 file test - mọi phép tính tài chính đều có test tự động",
+          "Tích hợp API giá thị trường bên ngoài (vàng, ETF, chứng chỉ quỹ): có lưới kiểm tính hợp lý và đường xử lý khi nguồn dữ liệu chết",
+          "88 file test, 973 test case tự động - mọi phép tính tài chính đều có test; thêm bộ kiểm giao diện chạy bằng trình duyệt trên 7 khổ màn",
           "Tự ra quyết định thiết kế và duyệt từng bước, viết cùng Claude Code",
         ] },
       { time: "2026 - Nay", role: "Pipeline & công cụ tự động hoá", org: "Dự án tự dựng",
