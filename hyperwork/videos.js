@@ -1,55 +1,56 @@
 /* ============================================================
    videos.js - danh sach video cua rieng trang /hyperwork/
 
-   Vi sao khong dung chung `videos` trong ../data.js:
-   truc sap xep o day khac han (sap theo thu tu HyperWork quan tam,
-   khong phai theo persona). Thong tin lien he van doc tu ../data.js
-   de khong de ra ban sao ho so.
+   Uu tien hang dau: Nhấn mạnh các video Công nghệ trên kênh
+   YouTube cá nhân @Hungphanproductivity (Tự kịch bản, setup,
+   quay dựng trọn gói 100%).
    ============================================================ */
 
-// Video mo man: dat rieng vi day la quan bai manh nhat - no cho nguoi
-// xem thay CACH NGHI khi dung, khong chi thanh pham.
+// Video mở màn: Video công nghệ nổi bật trên kênh YouTube cá nhân
 const VIDEO_MO_MAN = {
-  ma: "qfsMP715mKQ",
-  ten: "Bóc timeline hậu kỳ một video quảng cáo",
+  ma: "zgUNQDcP1x0",
+  ten: "Tại sao mình không trả tiền mua ChatGPT Plus | Kênh @Hungphanproductivity",
   chu_thich:
-    "Các lớp hình, điểm cắt, và lý do cắt đúng chỗ đó. " +
-    "Cách nhanh nhất để biết một editor nghĩ gì khi dựng.",
+    "Video nổi bật trên kênh cá nhân (5.500+ views): Tự lên kịch bản, setup góc quay, nói trước ống kính, dựng phim và hậu kỳ trọn gói 100%.",
 };
 
 const NHOM_VIDEO = [
   {
-    ten: "Không gian & thương hiệu",
+    ten: "Video Công nghệ & Content Creator (Kênh YouTube cá nhân)",
     mo_ta:
-      "Quay không gian và đồ vật bằng ánh sáng có sẵn tại chỗ, " +
-      "dựng thành phim thương hiệu.",
+      "Các video công nghệ & AI do anh tự sản xuất trọn gói cho kênh @Hungphanproductivity: Tự lên kịch bản, setup góc quay/ánh sáng studio, quay phim, dựng và làm hậu kỳ.",
     video: [
-      { ma: "4ucP2iiUMDI", ten: "Fleur - Nếu Hà Nội đã làm bạn mệt nhoài" },
-      { ma: "sollnPbOS94", ten: "Fleur - Christmas" },
-      { ma: "9t5dosYSoGk", ten: "Giới thiệu bể bơi UDIC" },
-      { ma: "rfPFwK_1M34", ten: "Khai trương nhà hàng Chen Trần" },
+      { ma: "zgUNQDcP1x0", ten: "Tại sao mình không trả tiền mua ChatGPT Plus (5.5K views)" },
+      { ma: "TEiit3mwwq8", ten: "Tạo ảnh miễn phí với ChatGPT" },
+      { ma: "P-MeqRgGc7g", ten: "4 Siêu công cụ AI sáng tạo nội dung" },
+      { ma: "MdXOeW1_rDE", ten: "Công thức viết prompt hiệu quả (#Shorts)" },
+      { ma: "UxXrQOXF-RA", ten: "Tạo video với Kling AI (#Shorts)" },
     ],
   },
   {
-    ten: "Quảng cáo sản phẩm & dịch vụ",
-    mo_ta: "Video bán hàng: mở đầu giữ chân, thông điệp gọn, kêu gọi rõ.",
+    ten: "Quảng cáo Sản phẩm & Thương hiệu",
+    mo_ta:
+      "Các dự án video thương mại, quảng cáo sản phẩm và giới thiệu không gian cho doanh nghiệp.",
     video: [
+      { ma: "qfsMP715mKQ", ten: "Bóc timeline hậu kỳ video quảng cáo" },
       { ma: "g7xwdSmZ3TQ", ten: "Quảng cáo chăm sóc da mặt" },
+      { ma: "4ucP2iiUMDI", ten: "Fleur - Nếu Hà Nội đã làm bạn mệt nhoài" },
+      { ma: "rfPFwK_1M34", ten: "Khai trương nhà hàng Chen Trần" },
+      { ma: "9t5dosYSoGk", ten: "Giới thiệu bể bơi UDIC" },
       {
         drive: "1XdwK8Pt4w9RT_GVOOBJXhkDj2njrXlaU",
-        ten: "Video quảng cáo (bản đầy đủ)",
+        ten: "Video quảng cáo (bản full HD)",
       },
     ],
   },
   {
-    ten: "AI trong sản xuất",
+    ten: "Ứng dụng AI & Kỹ thuật hậu kỳ",
     mo_ta:
-      "Dùng công cụ sinh hình và giọng nói để rút ngắn khâu ý tưởng " +
-      "và hậu kỳ, thay vì thuê ngoài từng khâu.",
+      "Sử dụng công cụ sinh hình ảnh, giọng nói AI kết hợp hậu kỳ Premiere Pro / CapCut tăng tốc sản xuất.",
     video: [
-      { ma: "UXk5Dh9CS5Q", ten: "The Coach App - phim quảng cáo dựng bằng AI" },
-      { ma: "KZ8cIGY5jgE", ten: "Phân biệt Job và Career" },
-      { ma: "lCUvg4n1dHE", ten: "Phân biệt Envious và Jealous" },
+      { ma: "UXk5Dh9CS5Q", ten: "The Coach App - Video quảng cáo dựng bằng AI" },
+      { ma: "KZ8cIGY5jgE", ten: "Phân biệt Job và Career (#Shorts)" },
+      { ma: "lCUvg4n1dHE", ten: "Phân biệt Envious và Jealous (#Shorts)" },
     ],
   },
 ];
