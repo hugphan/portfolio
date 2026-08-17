@@ -1,89 +1,88 @@
 /* ============================================================
    videos.js - danh sach video cua rieng trang /hyperwork/
 
-   Cấu trúc sắp xếp theo đúng yêu cầu:
-   1. Video mở màn: Khai trương nhà hàng Chen Trần (video xịn nhất)
+   Cấu trúc sắp xếp & văn phong mô tả khiêm tốn, chân thật:
+   1. Video mở màn: Khai trương Chen Trần (nhiều góc máy, ánh sáng, speed ramp)
    2. Phần 1: Bóc timeline hậu kỳ
    3. Phần 2: Kênh YouTube cá nhân @Hungphanproductivity (Tech & AI)
-      với video highlight Shorts: wkjA-JCLC-4
    4. Phần 3: Quảng cáo sản phẩm & không gian thương hiệu
-   5. Phần 4: Ứng dụng AI & Kỹ thuật hậu kỳ
+   5. Phần 4: Thử nghiệm AI trong hậu kỳ
    ============================================================ */
 
-// Video mở màn: Khai trương nhà hàng Chen Trần (Video chất lượng xịn nhất)
+// Video mở màn: Khai trương nhà hàng Chen Trần
 const VIDEO_MO_MAN = {
   ma: "rfPFwK_1M34",
   ten: "Khai trương nhà hàng Chen Trần",
   chu_thich:
-    "Video thương mại ấn tượng nhất: Góc máy đẹp, ánh sáng chuyên nghiệp, màu sắc chuẩn điện ảnh và nhịp dựng mượt mà.",
+    "Video ghi lại sự kiện khai trương với nhiều góc máy linh hoạt, phối hợp ánh sáng đèn sự kiện và ánh sáng tự nhiên. Em kết hợp hiệu ứng speed ramp ở các đoạn múa lân và cắt cúp nhịp nhàng để tạo chuyển động cuốn hút cho video.",
 };
 
 const NHOM_VIDEO = [
   {
-    ten: "Tư duy dựng & Bóc Timeline hậu kỳ",
+    ten: "Góc nhìn hậu kỳ & Bóc timeline",
     mo_ta:
-      "Minh chứng thực tế về kỹ năng quản lý file, sắp xếp track và tư duy dựng phim hậu kỳ trọn gói.",
+      "Một bản bóc tách timeline Premiere Pro ghi lại cách em sắp xếp các lớp hình, điểm cắt và xử lý âm thanh. Đây là cách nhanh nhất để anh chị thấy tư duy dựng phim thực tế của em.",
     video: [
       {
         ma: "qfsMP715mKQ",
-        ten: "Bóc timeline hậu kỳ một video quảng cáo",
+        ten: "Bóc timeline hậu kỳ một clip quảng cáo (xử lý lớp hình & âm thanh)",
       },
     ],
   },
   {
-    ten: "Kênh YouTube cá nhân @Hungphanproductivity (Tech & AI)",
+    ten: "Kênh YouTube cá nhân @Hungphanproductivity",
     mo_ta:
-      "Kênh YouTube cá nhân chia sẻ về AI & Công nghệ - Tự thực hiện 100% trọn gói từ ý tưởng, kịch bản, setup góc quay/ánh sáng studio, quay phim, nói trước ống kính đến dựng phim và chỉnh màu.",
+      "Góc nhỏ em tự mày mò làm từ kịch bản, ánh sáng, góc máy đến hậu kỳ để chia sẻ trải nghiệm đồ công nghệ và công cụ AI. Nhờ tự làm kênh nên em quen với việc tối ưu khung hình và nhịp dựng giữ chân người xem.",
     video: [
       {
         ma: "wkjA-JCLC-4",
-        ten: "Bảo mật thông tin trên Internet (#Shorts - Góc quay nét)",
+        ten: "Bảo mật thông tin trên Internet (#Shorts - setup góc quay & ánh sáng)",
       },
       {
         ma: "zgUNQDcP1x0",
-        ten: "Tại sao mình không trả tiền mua ChatGPT Plus (5.5K views)",
+        ten: "Tại sao mình không trả tiền mua ChatGPT Plus (nói trước ống kính & visual)",
       },
       {
         ma: "TEiit3mwwq8",
-        ten: "Tạo ảnh miễn phí với ChatGPT",
+        ten: "Tạo ảnh miễn phí với ChatGPT (hướng dẫn thao tác màn hình)",
       },
       {
         ma: "P-MeqRgGc7g",
-        ten: "4 Siêu công cụ AI sáng tạo nội dung",
+        ten: "4 Siêu công cụ AI sáng tạo nội dung (kịch bản & cô đọng thông tin)",
       },
       {
         ma: "MdXOeW1_rDE",
-        ten: "Công thức viết prompt hiệu quả (#Shorts)",
+        ten: "Công thức viết prompt hiệu quả (#Shorts - nhịp dựng ngắn)",
       },
       {
         ma: "UxXrQOXF-RA",
-        ten: "Tạo video với Kling AI (#Shorts)",
+        ten: "Tạo video với Kling AI (#Shorts - ứng dụng AI)",
       },
     ],
   },
   {
     ten: "Quảng cáo Sản phẩm & Không gian Thương hiệu",
     mo_ta:
-      "Các dự án video thương mại, quảng cáo sản phẩm, chăm sóc sắc đẹp và giới thiệu không gian kiến trúc.",
+      "Các video em quay dựng cho spa, nhà hàng, khách sạn và dịch vụ. Ưu tiên góc quay tôn lên vẻ đẹp sản phẩm và màu sắc tự nhiên của không gian.",
     video: [
-      { ma: "g7xwdSmZ3TQ", ten: "Quảng cáo chăm sóc da mặt" },
-      { ma: "4ucP2iiUMDI", ten: "Fleur - Nếu Hà Nội đã làm bạn mệt nhoài" },
-      { ma: "sollnPbOS94", ten: "Fleur - Christmas" },
-      { ma: "9t5dosYSoGk", ten: "Giới thiệu bể bơi UDIC" },
+      { ma: "g7xwdSmZ3TQ", ten: "Quảng cáo dịch vụ chăm sóc da mặt (quay cận cảnh & bắt sáng)" },
+      { ma: "4ucP2iiUMDI", ten: "Fleur Homestay (quay không gian & ánh sáng tự nhiên)" },
+      { ma: "sollnPbOS94", ten: "Fleur Homestay - Giáng sinh (bắt khoảnh khắc & màu ấm)" },
+      { ma: "9t5dosYSoGk", ten: "Giới thiệu bể bơi UDIC (góc quay toàn cảnh & chuyển động)" },
       {
         drive: "1XdwK8Pt4w9RT_GVOOBJXhkDj2njrXlaU",
-        ten: "Video quảng cáo (bản full HD)",
+        ten: "Video quảng cáo tổng hợp (bản đầy đủ)",
       },
     ],
   },
   {
-    ten: "Ứng dụng AI & Kỹ thuật hậu kỳ",
+    ten: "Thử nghiệm AI trong hậu kỳ",
     mo_ta:
-      "Sử dụng công cụ sinh hình ảnh, giọng nói AI kết hợp hậu kỳ Premiere Pro / CapCut tăng tốc sản xuất.",
+      "Những sản phẩm em kết hợp công cụ sinh ảnh, giọng nói AI cùng Premiere Pro để rút ngắn thời gian sản xuất mà vẫn giữ chất lượng hình ảnh.",
     video: [
-      { ma: "UXk5Dh9CS5Q", ten: "The Coach App - Video quảng cáo dựng bằng AI" },
-      { ma: "KZ8cIGY5jgE", ten: "Phân biệt Job và Career (#Shorts)" },
-      { ma: "lCUvg4n1dHE", ten: "Phân biệt Envious và Jealous (#Shorts)" },
+      { ma: "UXk5Dh9CS5Q", ten: "The Coach App (dựng phim kết hợp hình ảnh AI)" },
+      { ma: "KZ8cIGY5jgE", ten: "Phân biệt Job và Career (#Shorts - nhịp ngắn & phụ đề)" },
+      { ma: "lCUvg4n1dHE", ten: "Phân biệt Envious và Jealous (#Shorts - đồ họa chữ)" },
     ],
   },
 ];
