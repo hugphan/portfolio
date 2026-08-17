@@ -1,0 +1,382 @@
+/* ============================================================
+   styles.css - trang portfolio video gui HyperWork
+
+   Bang mau lay tu hyperwork.vn (charcoal #303030 + xam #a9a9a9),
+   day sau thanh nen toi. Accent #C08D5A la mau go oc cho - vat lieu
+   cua the gioi ban lam viec, khong phai mau neon.
+   Moi cap mau da do tuong phan bang so truoc khi chot:
+     chu #EDEDED / nen        14.87:1
+     xam #A9A9A9 / mat the     6.60:1
+     accent #C08D5A / mat the  5.32:1
+   Vach #404040 chi la duong ke phu tro (khoi da tach bang khoang
+   trang + tieu de), khong mang thong tin nen khong can dat 3:1.
+   ============================================================ */
+
+:root {
+  --nen: #1a1a1a;
+  --mat: #242424;
+  --vach: #404040;
+  --chu: #ededed;
+  --chu-mo: #a9a9a9;
+  --accent: #c08d5a;
+
+  /* Du phong deu la sans-serif: neu mang ben nhan chan Google Fonts,
+     trang van giu dung tinh than thay vi roi ve serif. */
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --than: "IBM Plex Sans", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --rong: 1080px;
+  --le-truc: 3rem; /* cho duong timeline doc ben trai */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--nen);
+  color: var(--chu);
+  font-family: var(--than);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.bo-qua {
+  position: absolute;
+  left: -9999px;
+}
+.bo-qua:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  background: var(--accent);
+  color: var(--nen);
+  padding: 0.5rem 0.9rem;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+/* ---------- Thanh dinh ---------- */
+.dinh {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: var(--rong);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--vach);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--chu-mo);
+}
+.dinh-ten { color: var(--chu); }
+
+main {
+  max-width: var(--rong);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Mo man ---------- */
+.mo-man { padding: 4.5rem 0 3rem; }
+
+.nhan {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.25rem;
+}
+
+.mo-man h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+.mo-man h1 em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--chu-mo);
+}
+
+.dan {
+  max-width: 60ch;
+  color: var(--chu-mo);
+  margin: 0 0 3rem;
+}
+
+/* ---------- The video mo man ---------- */
+.hero { margin: 0; }
+
+.hero .khung { aspect-ratio: 16 / 9; }
+
+.hero figcaption {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  max-width: 56ch;
+}
+.hero .hero-ten {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+.hero .hero-chu-thich {
+  color: var(--chu-mo);
+  font-size: 0.95rem;
+}
+
+/* ---------- Truc timeline + cac nhom ---------- */
+/* Duong doc + diem hinh thoi la ngon ngu cua ban dung phim
+   (keyframe trong Premiere dung la hinh thoi). No neo vao chinh
+   video mo man: mot ban boc timeline. */
+.truc { position: relative; }
+
+@media (min-width: 900px) {
+  .truc { padding-left: var(--le-truc); }
+  .truc::before {
+    content: "";
+    position: absolute;
+    left: 4px; /* khop tam diem keyframe (rong 9px) ben duoi */
+    top: 1.9rem;
+    bottom: 3rem;
+    width: 1px;
+    background: var(--vach);
+  }
+}
+
+.nhom { padding: 3.5rem 0 0; position: relative; }
+
+.nhom-dau {
+  /* Moc cho diem keyframe: neo vao DONG TIEU DE, khong phai dinh khoi,
+     de diem luon ngang hang voi ten nhom. */
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--vach);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.nhom h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Diem keyframe tren truc */
+@media (min-width: 900px) {
+  .nhom h2::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--le-truc) * -1);
+    top: 0.42em;
+    width: 9px;
+    height: 9px;
+    background: var(--accent);
+    transform: rotate(45deg);
+  }
+}
+
+.dem {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--chu-mo);
+  white-space: nowrap;
+}
+
+.nhom-mo-ta {
+  color: var(--chu-mo);
+  max-width: 62ch;
+  margin: 0 0 1.75rem;
+  font-size: 0.95rem;
+}
+
+.luoi {
+  display: grid;
+  /* auto-fit chu khong phai auto-fill: cac nhom co 2, 3, 4 video deu lap
+     day mot hang, khong de lai o trong hay hang le mot the. */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem 1.25rem;
+}
+
+/* ---------- The video ---------- */
+.the { display: grid; gap: 0.7rem; }
+
+.khung,
+.khung-iframe,
+.the iframe,
+.hero iframe {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--mat);
+  border: 1px solid var(--vach);
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.khung img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.khung:hover img,
+.khung:focus-visible img {
+  filter: brightness(1.08);
+  transform: scale(1.03);
+}
+
+/* Nut phat */
+.phat {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.phat span {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--chu);
+  background: rgba(26, 26, 26, 0.55);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.phat span::after {
+  content: "";
+  border-left: 11px solid var(--chu);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  margin-left: 3px;
+}
+.khung:hover .phat span,
+.khung:focus-visible .phat span {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.khung:hover .phat span::after,
+.khung:focus-visible .phat span::after {
+  border-left-color: var(--nen);
+}
+
+/* O thay the cho video Drive (khong lay duoc anh dai dien) */
+.khung.khong-anh {
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--mat) 0 10px,
+      #2a2a2a 10px 20px
+    );
+}
+
+.khung iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.the-ten {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* ---------- Lien he ---------- */
+.lien-he {
+  margin: 5rem 0 0;
+  padding: 2.5rem 0 0;
+  border-top: 1px solid var(--vach);
+}
+.lien-he h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0 0 1.5rem;
+}
+.lien-he dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.6rem 1.5rem;
+  margin: 0 0 1.5rem;
+  align-items: baseline;
+}
+.lien-he dt {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chu-mo);
+}
+.lien-he dd { margin: 0; }
+.lien-he dd a { text-decoration: none; }
+.lien-he dd a:hover { text-decoration: underline; }
+.ghi-chu { color: var(--chu-mo); font-size: 0.9rem; margin: 0; }
+
+.chan {
+  max-width: var(--rong);
+  margin: 4rem auto 0;
+  padding: 1.25rem 1.5rem 2.5rem;
+  border-top: 1px solid var(--vach);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--chu-mo);
+}
+
+/* ---------- Hien dan khi cuon ---------- */
+.ra {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.ra.hien { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ra { opacity: 1; transform: none; }
+}
+
+@media (max-width: 560px) {
+  .mo-man { padding: 3rem 0 2rem; }
+  .luoi { grid-template-columns: 1fr; }
+  .lien-he dl { grid-template-columns: 1fr; gap: 0.15rem; }
+  .lien-he dt { margin-top: 0.75rem; }
+}
