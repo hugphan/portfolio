@@ -14,7 +14,7 @@ const VIDEO_MO_MAN = {
   ma: "rfPFwK_1M34",
   ten: "Khai trương nhà hàng Chen Trần",
   chu_thich:
-    "Video ghi lại sự kiện khai trương với nhiều góc máy linh hoạt, phối hợp ánh sáng đèn sự kiện và ánh sáng tự nhiên. Em kết hợp hiệu ứng speed ramp ở các đoạn múa lân và cắt cúp nhịp nhàng để tạo chuyển động cuốn hút cho video.",
+    "Video ghi lại sự kiện khai trương với nhiều góc máy linh hoạt, phối hợp ánh sáng đèn sự kiện và ánh sáng tự nhiên. Em kết hợp hiệu ứng speed ramp ở các đoạn múa lân và cắt nhịp nhàng để tạo chuyển động cuốn hút cho video.",
 };
 
 const NHOM_VIDEO = [
